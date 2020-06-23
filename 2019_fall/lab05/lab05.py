@@ -213,6 +213,18 @@ def add_chars(w1, w2):
     True
     """
     "*** YOUR CODE HERE ***"
+    def add_chars_helper(w1, w2, result): 
+        if len(w2) == 0: 
+            return result
+        elif len(w1) == 0: 
+            return result + w2
+        elif w1[0] == w2[0]:
+            return add_chars_helper(w1[1:], w2[1:], result)
+        else: 
+            result += w2[0]
+            return add_chars_helper(w1, w2[1:], result)
+    return add_chars_helper(w1, w2, "")
+
 
 def add_trees(t1, t2):
     """
